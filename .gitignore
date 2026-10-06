@@ -1,0 +1,10 @@
+node_modules/
+browsers/
+dist/
+.tools/
+.cache/
+test-output/
+TiendanubeManager/
+accounts.txt
+proxies.txt
+*.log

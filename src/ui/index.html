@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Tiendanube Account Manager</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="import.css">
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a5 5 0 1 1 .6-10A7 7 0 0 1 21 11a3.5 3.5 0 0 1-1.5 7Z"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3m1-16a3 3 0 0 1 0 6m2 3a5 5 0 0 1 3 5v2"/></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="6" rx="1"/><rect x="2" y="16" width="8" height="6" rx="1"/><rect x="14" y="16" width="8" height="6" rx="1"/><path d="M12 8v4M6 16v-4h12v4"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7V4h6l3 3h9v13H3Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M4 15v6h16v-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v5c0 5-8 10-8 10S4 16 4 11V6Z"/><path d="m8 11 3 3 5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6m0-6-6 6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 4 12 8-12 8Z"/></symbol>
+    <symbol id="i-retry" viewBox="0 0 24 24"><path d="M3 11a9 9 0 1 1 2 7M3 4v7h7"/></symbol>
+  </defs></svg>
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark"><svg><use href="#i-cloud"/></svg></div><div>tiendanube<span>ACCOUNT MANAGER</span></div></div>
+    <div class="workspace-label">ESPACIO DE TRABAJO</div>
+    <nav aria-label="Navegación principal">
+      <button class="nav-item active" data-view="accounts"><svg><use href="#i-grid"/></svg>Resumen<span class="nav-dot"></span></button>
+      <button class="nav-item" data-view="proxies"><svg><use href="#i-network"/></svg>Proxies<span id="nav-proxies">0</span></button>
+      <button class="nav-item" data-command="open-folder"><svg><use href="#i-folder"/></svg>Archivos y resultados</button>
+    </nav>
+    <div class="sidebar-note"><svg><use href="#i-shield"/></svg><strong>Tu espacio, protegido</strong><p>Perfiles independientes y credenciales cifradas en este equipo.</p><span>ALMACENAMIENTO LOCAL</span></div>
+    <div class="sidebar-footer"><span class="avatar">TM</span><div>Gestión de cuentas<small>Windows · v1.3.0</small></div></div>
+  </aside>
+  <main>
+    <header class="topbar"><div class="breadcrumb">Espacio de trabajo <span>/</span> <strong id="breadcrumb-view">Resumen</strong></div><span class="local-badge"><i></i> Entorno local</span></header>
+    <div class="content">
+      <section class="page-heading"><div><div class="eyebrow">CONTROL DE CUENTAS</div><h1>Todo bajo control.</h1><p>Gestioná tus tiendas, conexiones y sesiones desde un solo lugar.</p></div><button class="button" data-command="export"><svg class="download"><use href="#i-arrow"/></svg>Exportar resultados</button></section>
+      <section class="metrics" aria-label="Estadísticas">
+        <article class="metric"><span class="metric-icon blue"><svg><use href="#i-users"/></svg></span><div>Total de cuentas<strong id="stat-total">0</strong></div><small>En tu espacio de trabajo</small></article>
+        <article class="metric"><span class="metric-icon blue"><svg><use href="#i-check"/></svg></span><div>Procesadas<strong id="stat-processed">0</strong></div><small id="stat-percent">0% del total</small></article>
+        <article class="metric"><span class="metric-icon green"><svg><use href="#i-check"/></svg></span><div>Válidas<strong id="stat-valid">0</strong></div><small>Sesiones verificadas</small></article>
+        <article class="metric"><span class="metric-icon orange"><svg><use href="#i-shield"/></svg></span><div>Validación pendiente<strong id="stat-manual">0</strong></div><small>Requieren tu intervención</small></article>
+        <article class="metric compact"><span class="metric-icon red"><svg><use href="#i-x"/></svg></span><div>No funcionan<strong id="stat-invalid">0</strong></div></article>
+        <article class="metric compact"><span class="metric-icon amber"><svg><use href="#i-clock"/></svg></span><div>Errores temporales<strong id="stat-temp">0</strong></div></article>
+        <article class="metric compact"><span class="metric-icon teal"><svg><use href="#i-network"/></svg></span><div>Proxies disponibles<strong id="stat-proxies">0</strong></div></article>
+        <article class="metric compact"><span class="metric-icon gray"><svg><use href="#i-network"/></svg></span><div>Proxies con error<strong id="stat-failed-proxies">0</strong></div></article>
+      </section>
+      <section class="run-panel" aria-label="Procesamiento">
+        <div class="run-top"><span class="run-icon"><svg><use href="#i-play"/></svg></span><div class="run-description"><strong id="run-title">Listo para comenzar</strong><p id="run-message" aria-live="polite">Importá tus cuentas y proxies para comenzar.</p></div><span id="mode-badge" class="badge neutral">En espera</span></div>
+        <progress id="progress" value="0" max="100" aria-label="Cuentas procesadas"></progress>
+        <div class="run-bottom"><div class="run-detail"><span id="current-proxy">Proxy: —</span><span id="current-ip">IP de salida: —</span></div><div class="run-actions"><button id="start" class="button primary" data-command="start"><svg><use href="#i-play"/></svg>Iniciar</button><button id="pause" class="button" data-command="pause">Ⅱ Pausar</button><button id="resume" class="button primary" data-command="resume" hidden>Reanudar</button><button id="stop" class="button" data-command="stop">■ Detener</button></div></div>
+      </section>
+      <section class="data-panel">
+        <div class="panel-tabs" role="tablist" aria-label="Datos"><button id="accounts-tab" class="tab active" role="tab" aria-selected="true" data-view="accounts">Cuentas <span id="accounts-count">0</span></button><button id="proxies-tab" class="tab" role="tab" aria-selected="false" data-view="proxies">Proxies <span id="proxies-count">0</span></button><span class="panel-caption">Tus datos permanecen en este equipo</span></div>
+        <div class="table-toolbar"><label class="search"><svg><use href="#i-search"/></svg><input id="search" placeholder="Buscar cuenta o tienda…" aria-label="Buscar"></label><select id="status-filter" aria-label="Filtrar por estado"><option value="">Todos los estados</option></select><div class="import-actions"><button class="button" data-command="import-accounts"><svg><use href="#i-arrow"/></svg>Importar cuentas</button><button class="button" data-command="import-proxies"><svg><use href="#i-arrow"/></svg>Importar proxies</button><button id="check-proxies" class="button" data-command="check-proxies">Comprobar proxies</button></div></div>
+        <div id="selection-bar" class="selection-bar" hidden><span id="selected-count"></span><button class="text-button" id="retry">Reintentar seleccionadas</button><button class="text-button" id="clear-selection">Limpiar selección</button></div>
+        <div class="table-scroll"><table id="data-table"><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div>
+        <div id="empty-state" class="empty-state"><div class="empty-illustration"><svg><use href="#i-users"/></svg><span>+</span></div><h2>Tu próxima sesión empieza acá</h2><p>Importá un archivo de cuentas para organizar tus tiendas<br>y comenzar a gestionar sus accesos.</p><button class="button primary" data-command="import-accounts">Importar accounts.txt <span>↗</span></button><small>Formato: email | password | store_url</small></div>
+        <footer class="table-footer"><span id="table-summary">0 cuentas</span><div><button class="page-button" id="prev-page" aria-label="Página anterior">‹</button><span id="page-label">Página 1 de 1</span><button class="page-button" id="next-page" aria-label="Página siguiente">›</button></div></footer>
+      </section>
+      <div class="security-note"><svg><use href="#i-shield"/></svg><p>Ante una verificación de seguridad, el procesamiento se pausa para que puedas completar la validación manual.</p><span>Sin cambio automático de IP</span></div>
+      <footer class="main-footer"><span>Tiendanube Account Manager</span><span>Gestor independiente · Cuentas autorizadas</span></footer>
+    </div>
+  </main>
+  <div id="toast" role="status" hidden></div>
+  <dialog id="import-report" aria-labelledby="import-report-title"><h2 id="import-report-title">Revisión del archivo de cuentas</h2><p id="import-summary"></p><p class="import-help">Las cuentas con contraseñas distintas quedan pendientes de corregir y reimportar. La tabla indica las líneas del archivo que requieren revisión.</p><div class="import-issues-scroll"><table id="import-issues-table"><thead><tr><th>Línea</th><th>Motivo</th></tr></thead><tbody id="import-issues"></tbody></table></div><div class="dialog-actions"><button id="review-data" class="button">Ver cuentas pendientes de corregir</button><button id="close-import-report" class="button primary">Entendido</button></div></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
